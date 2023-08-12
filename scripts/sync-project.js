@@ -1,7 +1,7 @@
 const { Octokit } = require('@octokit/rest');
 
 // GitHub token with necessary permissions
-const githubToken = process.env.PROJECT_TOKEN;
+const githubToken = process.env.GH_TOKEN;
 
 // Octokit instance
 const octokit = new Octokit({ auth: githubToken });

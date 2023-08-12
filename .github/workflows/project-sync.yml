@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Project Sync Script
         env:
-          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
         run: |
           gh repo edit --enable-projects=true
           npm install
