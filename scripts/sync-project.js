@@ -1,4 +1,6 @@
 const { Octokit } = require('@octokit/rest');
+const yaml = require('js-yaml');
+const fs = require('fs');
 
 // GitHub token with necessary permissions
 const githubToken = process.env.GH_TOKEN;
@@ -26,7 +28,50 @@ async function checkAuthentication() {
     }
 }
 
-checkAuthentication();
+// checkAuthentication();
+
+async function getProjectId(projectName) {
+    try {
+      const response = await octokit.projects.listForRepo({
+        owner,
+        repo
+      });
+  
+      const project = response.data.find((proj) => proj.name === projectName);
+      if (project) {
+        return project.id;
+      } else {
+        throw new Error(`Project not found: ${projectName}`);
+      }
+    } catch (error) {
+      console.error('Error getting project ID:', error);
+    }
+}
+
+async function createProjectCard() {
+    try {
+      // Read the content of the YAML file
+      const yamlContent = fs.readFileSync('project-plan/card.yaml', 'utf8');
+  
+      // Parse the YAML content
+      const cardData = yaml.load(yamlContent);
+  
+      // Get the project ID (you'll need to replace with the actual project ID)
+      const projectId = await getProjectId(projectName);
+  
+      // Create a card in the project
+      await octokit.projects.createCard({
+        column_id: projectId,  // Use the appropriate column ID
+        note: cardData.body,   // Use the description from the YAML file
+      });
+  
+      console.log('Card created successfully');
+    } catch (error) {
+      console.error('Card creation failed:', error);
+    }
+}
+
+createProjectCard();
 
 
 async function createOrUpdateProject() {
@@ -58,5 +103,5 @@ async function createOrUpdateProject() {
   }
 }
 
-createOrUpdateProject();
+// createOrUpdateProject();
 

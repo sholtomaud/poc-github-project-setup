@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/sholtomaud/poc-github-project-setup#readme",
   "dependencies": {
-    "@octokit/rest": "^20.0.1"
+    "@octokit/rest": "^20.0.1",
+    "js-yaml": "^4.1.0"
   }
 }
