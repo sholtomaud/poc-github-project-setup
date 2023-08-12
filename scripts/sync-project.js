@@ -44,4 +44,4 @@ async function createOrUpdateProject() {
   }
 }
 
-createOrUpdateProject();
+// createOrUpdateProject();
