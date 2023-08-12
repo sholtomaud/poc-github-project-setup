@@ -6,7 +6,6 @@ const githubToken = process.env.PROJECT_TOKEN;
 // Octokit instance
 const octokit = new Octokit({ auth: githubToken });
 
-console.log('Octokit instance:', octokit);
 // Repository information
 const owner = 'sholtomaud'; // Replace with your GitHub username
 const repo = 'poc-github-project-setup';      // Replace with your repository name
@@ -17,18 +16,17 @@ const projectBody = 'POC';
 
 async function checkAuthentication() {
     try {
-      // Make an authenticated API call to get the authenticated user's information
-      const response = await octokit.users.getAuthenticated();
-  
-      // Log the response
-      console.log('Authenticated User:', response.data);
-    } catch (error) {
-      console.error('Authentication check failed:', error);
-    }
-  }
-  
-  checkAuthentication();
+        // Make an authenticated API call to get the authenticated user's information
+        const response = await octokit.users.getAuthenticated();
 
+        // Log the response
+        console.log('Authenticated User:', response.data);
+    } catch (error) {
+        console.error('Authentication check failed:', error);
+    }
+}
+
+checkAuthentication();
 
 
 async function createOrUpdateProject() {
@@ -60,5 +58,5 @@ async function createOrUpdateProject() {
   }
 }
 
-// createOrUpdateProject();
+createOrUpdateProject();
 
