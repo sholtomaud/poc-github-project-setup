@@ -19,6 +19,8 @@ jobs:
           node-version: 20
 
       - name: Run Project Sync Script
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
         run: |
           npm install
           node scripts/sync-project.js
