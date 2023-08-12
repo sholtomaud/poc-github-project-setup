@@ -22,5 +22,6 @@ jobs:
         env:
           PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
         run: |
+          gh repo edit --enable-projects=true
           npm install
           node scripts/sync-project.js
