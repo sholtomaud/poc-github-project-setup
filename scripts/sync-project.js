@@ -6,6 +6,7 @@ const githubToken = process.env.PROJECT_TOKEN;
 // Octokit instance
 const octokit = new Octokit({ auth: githubToken });
 
+console.log('Octokit instance:', octokit);
 // Repository information
 const owner = 'sholtomaud'; // Replace with your GitHub username
 const repo = 'poc-github-project-setup';      // Replace with your repository name
