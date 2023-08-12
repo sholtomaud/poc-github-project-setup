@@ -15,6 +15,22 @@ const repo = 'poc-github-project-setup';      // Replace with your repository na
 const projectName = 'poc-github-project-setup';
 const projectBody = 'POC';
 
+async function checkAuthentication() {
+    try {
+      // Make an authenticated API call to get the authenticated user's information
+      const response = await octokit.users.getAuthenticated();
+  
+      // Log the response
+      console.log('Authenticated User:', response.data);
+    } catch (error) {
+      console.error('Authentication check failed:', error);
+    }
+  }
+  
+  checkAuthentication();
+
+
+
 async function createOrUpdateProject() {
   try {
     // Get existing projects
@@ -45,3 +61,4 @@ async function createOrUpdateProject() {
 }
 
 // createOrUpdateProject();
+
