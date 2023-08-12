@@ -1,0 +1,23 @@
+{
+  "name": "poc-github-project-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sholtomaud/poc-github-project-setup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sholtomaud/poc-github-project-setup/issues"
+  },
+  "homepage": "https://github.com/sholtomaud/poc-github-project-setup#readme",
+  "dependencies": {
+    "@octokit/rest": "^20.0.1"
+  }
+}
